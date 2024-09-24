@@ -1,0 +1,18 @@
+{
+    "balance_total": "Balanç total",
+    "expenses_today": "Despeses avui",
+    "compared_yesterday": "respecte ahir",
+    "weekly_expenses_title": "Despeses - Última Setmana",
+    "no_data": "No hi ha dades per mostrar aquesta setmana.",
+    
+    "days": {
+    "lunes": "dl",
+    "martes": "dt",
+    "miercoles": "dm",
+    "jueves" : "dj",
+    "viernes": "dv",
+    "sabado": "ds",
+    "domingo": "dg"
+    }
+
+  }

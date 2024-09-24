@@ -1,0 +1,17 @@
+{
+    "balance_total": "Total balance",
+    "expenses_today": "Expenses today",
+    "compared_yesterday": "compared to yesterday",
+    "weekly_expenses_title": "Expenses - Last Week",
+    "no_data": "No data to show this week.",
+    
+    "days": {
+    "lunes": "mon",
+    "martes": "tue",
+    "miercoles": "wed",
+    "jueves" : "thu",
+    "viernes": "fri",
+    "sabado": "sat",
+    "domingo": "sun"
+    }
+  }

@@ -1,0 +1,18 @@
+{
+    "balance_total": "Balance total",
+    "expenses_today": "Gastos hoy",
+    "compared_yesterday": "respecto a ayer",
+    "weekly_expenses_title": "Gastos - Última Semana",
+    "no_data": "No hay datos para mostrar esta semana.",
+
+    "days": {
+    "lunes": "ln",
+    "martes": "mt",
+    "miercoles": "mc",
+    "jueves" : "jv",
+    "viernes": "vn",
+    "sabado": "sb",
+    "domingo": "dm"
+    }
+
+  }
