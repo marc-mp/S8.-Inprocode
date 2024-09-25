@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { DataContext } from '../Context/DataContext'
+import { DataContext } from '../context/DataContext'
 import { useTranslation } from "react-i18next"
 
 
