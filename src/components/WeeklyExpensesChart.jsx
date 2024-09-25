@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Bar } from 'react-chartjs-2'
-import { DataContext } from '../Context/DataContext'
+import { DataContext } from '../context/DataContext'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip } from 'chart.js'
 import TodayExpenses from "../components/TodayExpenses"
 import { useTranslation } from "react-i18next"
