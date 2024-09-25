@@ -23,19 +23,19 @@ export default function TotalBalance() {
   }
 
   return (
-    <div className="grid grid-cols-2 w-1/2 bg-red-400 mt-5 mx-72 p-5 rounded-3xl shadow-xl">
+    <div className="grid grid-cols-2 w-full sm:w-2/3 lg:w-1/2  bg-red-400 mt-5 mx-auto p-5 rounded-3xl shadow-xl">
       <div>
-        <h2 className="text-lg font-semibold text-white mb-2">{t('balance_total')}</h2>
-        <p className="text-4xl font-bold text-white">{totalGastosSemana.toFixed(2)} €</p>
+        <h2 className="text-md sm:text-lg font-semibold text-white mb-2">{t('balance_total')}</h2>
+        <p className="text-3xl font-bold text-white">{totalGastosSemana.toFixed(2)} €</p>
       </div>
       <div className="flex justify-end">
         {semanaActual > 1 && (
           <button 
             aria-label="Prev" 
-            className="text-white text-5xl me-5"
+            className="text-white text-4xl sm:text-5xl me-5"
             onClick={handlePrevWeek}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 sm:w-12 sm:h-12">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12l7.5-7.5M3 12h18" />
             </svg>
           </button>
@@ -46,7 +46,7 @@ export default function TotalBalance() {
             className="text-white me-5"
             onClick={handleNextWeek}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 sm:w-12 sm:h-12">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12l-7.5 7.5M21 12H3" />
             </svg>
           </button>

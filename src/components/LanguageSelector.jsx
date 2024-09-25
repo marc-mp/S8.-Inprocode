@@ -19,19 +19,18 @@ const LanguageSelector= () => {
   }
 
   return (
-    <div className="flex justify-end w-1/2 mt-10 mx-72 p-5">
+    <div className="flex justify-center md:justify-end w-full sm:w-2/3 md:w-1/2 mx-auto mt-5 p-5">
       {Object.keys(Flags).map((lang) => (
         <img
           key={lang}
           src={Flags[lang]}
           alt={lang}
-          className={`w-14 h-14 rounded-full mx-2 cursor-pointer ${i18n.language === lang ? 'border border-black border-opacity-50' : ''}`}
+          className={`w-10 h-10 sm:w-14 sm:h-14 rounded-full mx-2 cursor-pointer ${i18n.language === lang ? 'border border-black border-opacity-50' : ''}`}
           onClick={() => handleLanguageChange(lang)}
         />
       ))}
     </div>
-  )
-}
+  )}
 
 export default LanguageSelector
 

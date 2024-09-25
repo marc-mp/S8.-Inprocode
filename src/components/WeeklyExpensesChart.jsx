@@ -84,16 +84,16 @@ const WeeklyExpensesChart = () => {
   }
 
   return (
-    <div className='flex-row justify-center bg-white w-1/2 border-2 my-5 mx-72 p-5 rounded-3xl shadow-xl'>
-      <div className='mb-10 '>
-        <h2 className='text-3xl font-bold ms-20 mb-10'>{t("weekly_expenses_title")}</h2>
-        {weeklyData.length > 0 ? (
-          <Bar data={chartData} options={options} className='mx-5 mb-5' />
-        ) : (
-          <p>{t("no_data")}</p>
-        )}
-      </div>
-      <div>
+    <div className='flex flex-col justify-center bg-white w-full sm:w-2/3 lg:w-1/2 border-2 my-5 mx-auto p-5 rounded-3xl shadow-xl'>
+      <h2 className='text-2xl sm:text-3xl font-bold text-center mb-5'>{t("weekly_expenses_title")}</h2>
+      {weeklyData.length > 0 ? (
+        <div className='w-full'>
+          <Bar data={chartData} options={options} className='mx-auto w-full' />
+        </div>
+      ) : (
+        <p className="text-center">{t("no_data")}</p>
+      )}
+      <div className='mt-3'>
         <TodayExpenses />
       </div>
     </div>
