@@ -1,0 +1,90 @@
+# name: SonarCloud
+# on:
+#   push:
+#     branches:
+#       - main  # Executa l'anàlisi només quan es fa un push a la branca main
+#   pull_request:
+#     branches:
+#       - main  # Executa l'anàlisi per a cada pull request a la branca main
+
+# jobs:
+#   sonarcloud:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       # Configura l'entorn necessari, per exemple, per a projectes Java
+#       - name: Set up JDK 11
+#         uses: actions/setup-javascript@v2
+#         with:
+#           distribution: 'adopt'
+#           java-version: '11'
+
+#       # Executa l'anàlisi de SonarCloud
+#       - name: SonarCloud Scan
+#         env:
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Utilitza el token secret de SonarCloud
+#         run: |
+#           mvn clean verify sonar:sonar \
+#           -Dsonar.projectKey=S8.-Inprocode \
+#           -Dsonar.organization=marc-mp \
+#           -Dsonar.host.url=https://sonarcloud.io \
+#           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
+#       # Comprovació del "Quality Gate" de SonarCloud (opcional)
+#       - name: SonarCloud Quality Gate Check
+#         uses: SonarSource/sonarcloud-github-action@master
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+
+name: SonarCloud
+on:
+  push:
+    branches:
+      - main  # Executa l'anàlisi quan es fa un push a la branca main
+  pull_request:
+    branches:
+      - main  # Executa l'anàlisi per a les pull requests dirigides a la branca main
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Comprovar el codi del repositori
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Configurar Node.js (perquè React utilitza Node.js)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'  # Pots especificar la versió de Node.js que necessites
+
+      # Step 3: Instal·lar dependències
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Executar l'anàlisi de SonarCloud
+      - name: SonarCloud Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Utilitza el secret guardat a GitHub
+        run: |
+          npx sonar-scanner \
+          -Dsonar.projectKey=S8.-Inprocode \
+          -Dsonar.organization=marc-mp \
+          -Dsonar.sources=src \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
+      # Opcional: Comprovar el SonarCloud Quality Gate
+      - name: SonarCloud Quality Gate Check
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
